@@ -304,7 +304,8 @@
               <img src="Awards/Award.jpg"
                    alt="Project Excellence Award Trophy"
                    class="project-image"
-                   style="max-height: 300px; width: auto; margin: 0 auto;" />
+                   style="max-height: 300px; width: auto; margin: 0 auto;"
+                   onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22300%22%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 font-size=%2260%22%3E🏆%3C/text%3E%3C/svg%3E';" />
               
               <h5 class="card-title mt-3">HRP Developer Excellence Award</h5>
               <p class="card-text">
@@ -365,11 +366,14 @@
           <!-- Option 1: If you have a PNG/JPG version of the certificate, use that -->
           <!-- <img src="Awards/Certificate.png" alt="Certificate" class="img-fluid" /> -->
           
-          <!-- Option 2: Embed PDF -->
-          <embed src="Awards/Certificate.pdf" 
-                 type="application/pdf" 
-                 width="100%" 
-                 height="600px" />
+          <!-- Option 2: Embed PDF with fallback -->
+          <div id="pdfContainer">
+            <embed src="Awards/Certificate.pdf" 
+                   type="application/pdf" 
+                   width="100%" 
+                   height="600px"
+                   onerror="showPdfError()" />
+          </div>
           
           <p class="mt-3 text-muted">
             <em>Basavena Pranav Kumar - Recipient of the HRP Developer Excellence Award</em>
@@ -409,6 +413,18 @@
     function copyEmail() {
       navigator.clipboard.writeText("bpranavk16@gmail.com");
       alert("Email copied to clipboard!");
+    }
+    
+    function showPdfError() {
+      const container = document.getElementById('pdfContainer');
+      if (container) {
+        container.innerHTML = `
+          <div class="alert alert-warning" role="alert">
+            <h5>Unable to display PDF in browser</h5>
+            <p>Your browser may not support embedded PDFs. Please use the download button below to view the certificate.</p>
+          </div>
+        `;
+      }
     }
   </script>
 
