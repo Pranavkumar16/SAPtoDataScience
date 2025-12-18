@@ -38,6 +38,37 @@
       border-radius: 4px;
       margin-bottom: 10px;
     }
+    /* Enhanced carousel controls visibility */
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 10%;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 4px;
+    }
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.8));
+    }
+    /* Enhanced carousel indicators */
+    .carousel-indicators button {
+      background-color: #4CAF50 !important;
+      width: 40px;
+      height: 4px;
+      border-radius: 2px;
+      opacity: 0.5;
+      border: none;
+    }
+    .carousel-indicators button.active {
+      opacity: 1;
+      height: 6px;
+    }
+    .carousel-indicators {
+      margin-bottom: 0 !important;
+    }
   </style>
 </head>
 <body>
@@ -380,10 +411,15 @@
             </button>
             
             <!-- Carousel Indicators -->
-            <div class="carousel-indicators mt-3" style="position: static;">
+            <div class="carousel-indicators mt-3 position-relative" style="position: static; margin-bottom: 0;">
               <button type="button" data-bs-target="#awardsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Award Trophy"></button>
               <button type="button" data-bs-target="#awardsCarousel" data-bs-slide-to="1" aria-label="Certificate"></button>
             </div>
+          </div>
+          
+          <!-- Help text for navigation -->
+          <div class="text-center mt-2">
+            <small class="text-muted">← Use arrows or dots to navigate →</small>
           </div>
         </div>
 
